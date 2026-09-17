@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Leave a birthday wish for Jeniffer and upload your avatar.">
+  <title>Add a Wish — For Jeniffer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="form-page">
+  <main class="form-shell">
+    <div class="form-cloud form-cloud-one" aria-hidden="true"><img src="assets/cloud.svg" alt=""></div>
+    <div class="form-cloud form-cloud-two" aria-hidden="true"><img src="assets/cloud.svg" alt=""></div>
+    <header class="form-topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">♥</span><span>FOR JENIFFER</span></a>
+      <a class="back-link" href="index.html">← Back to wishes</a>
+    </header>
+    <section class="form-layout">
+      <div class="form-intro">
+        <p class="eyebrow">✦ ONE LITTLE NOTE, LOTS OF LOVE</p>
+        <h1>Send a wish<br><em>to Jeniffer.</em></h1>
+        <p>Your message will become a floating bubble on Jeniffer’s birthday sky. Add your ava so she knows who sent the love.</p>
+      </div>
+      <form id="wish-form" class="wish-form">
+        <div class="form-heading">
+          <div><span class="form-kicker">BIRTHDAY MESSAGE</span><h2>Made wishes for Jeniffer</h2></div>
+          <span class="form-icon">♥</span>
+        </div>
+        <div class="field-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" maxlength="40" placeholder="Your name" required>
+        </div>
+        <div class="field-group">
+          <div class="label-row"><label for="wish">Your wish</label><span id="wish-counter">0/500</span></div>
+          <textarea id="wish" name="wish" maxlength="500" rows="5" placeholder="Write something sweet for Jeniffer..." required></textarea>
+        </div>
+        <div class="field-group">
+          <label for="avatar">Your ava</label>
+          <input id="avatar" class="visually-hidden" type="file" accept="image/*" required>
+          <label id="avatar-upload" class="avatar-drop" for="avatar">
+            <span class="upload-icon">▣</span>
+            <span class="upload-copy"><strong>Upload your photo</strong><small>JPG, PNG or WEBP · max 5 MB</small></span>
+            <span aria-hidden="true">⌁</span>
+          </label>
+          <div id="avatar-preview-row" class="avatar-preview-row is-hidden">
+            <div class="avatar-preview"><img id="avatar-preview" src="" alt="Square avatar preview"></div>
+            <div class="preview-copy"><strong>Looking good!</strong><small>Your photo is cropped into a square automatically.</small></div>
+            <button id="remove-avatar" class="remove-avatar" type="button" aria-label="Remove avatar">×</button>
+          </div>
+        </div>
+        <button id="send-button" class="send-button" type="submit"><span>Send to Jeniffer</span><span aria-hidden="true">➤</span></button>
+        <p class="form-note">Your name, wish, and square ava will appear on the floating wish wall.</p>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <footer class="form-footer">MADE FOR ROLEPLAY PURPOSE <span>|</span> <a href="index.html">VIEW WISHES FOR JENIFFER</a></footer>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/add-wish.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+JENIFFER BIRTHDAY WISH WEBSITE
+================================
+
+START HERE — VERY SIMPLE VERSION
+
+1. Extract the ZIP file.
+2. Open Visual Studio Code.
+3. Click File > Open Folder.
+4. Choose the folder named Jeniffer-Birthday-Wish-Website.
+5. Install the VS Code extension called Live Server.
+6. Open index.html (this is the floating wish wall).
+7. Right-click inside index.html.
+8. Click Open with Live Server.
+
+The website will open in your browser.
+
+IMPORTANT:
+- The website works immediately in LOCAL MODE.
+- Local Mode saves wishes only in your own browser.
+- If you want everyone to see the same wishes, follow SETUP-SUPABASE.md.
+- If you want to upload it to GitHub, follow UPLOAD-TO-GITHUB.md.
+- The complete explanation is in README.md.
+
+FILES YOU WILL EDIT MOST OFTEN:
+- index.html       = floating wish wall / first page
+- add-wish.html    = the form for sending a wish
+- css/style.css    = colors and visual design
+- js/config.js     = local mode or online database mode
+
+FILES YOU USUALLY DO NOT NEED TO EDIT:
+- js/shared.js
+- js/home.js
+- js/add-wish.js
+- supabase/setup.sql
+
+Never share a Supabase secret or service_role key.
+Only use the publishable key described in SETUP-SUPABASE.md.

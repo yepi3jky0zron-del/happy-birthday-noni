@@ -43,7 +43,7 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   min-height: 100vh;
   min-height: 100svh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: visible;
   padding: 0 18px;
   background:
@@ -521,6 +521,9 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   max-width: 100%;
   min-height: 104px;
+  animation: bubbleFloat 3.8s ease-in-out infinite;
+  animation-delay: var(--bubble-delay);
+  will-change: transform;
 }
 .floating-wishes .wish-bubble:nth-child(3n + 2) { margin-top: 28px; }
 .floating-wishes .wish-bubble:nth-child(3n + 3) { margin-top: 10px; }
@@ -562,48 +565,21 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
     flex: 0 0 47%;
     width: 47%;
     min-height: 70px;
-    animation: mobilePaperFloat 5.2s ease-in-out infinite;
-    transform: rotate(-2deg) !important;
+    animation: mobilePaperFloat 3.8s ease-in-out infinite;
+    transform: rotate(-2deg);
   }
   .floating-wishes .wish-bubble:nth-child(even) {
     margin-left: auto;
     margin-top: 28px;
-    transform: rotate(2.5deg) !important;
+    transform: rotate(2.5deg);
     animation-delay: -1.7s;
   }
   .floating-wishes .wish-bubble:nth-child(3n) {
-    transform: rotate(-1deg) !important;
+    transform: rotate(-1deg);
     animation-delay: -3.1s;
   }
   @keyframes mobilePaperFloat {
-    0%, 100% { translate: 0 0; }
-    50% { translate: 0 -8px; }
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-13px) rotate(-1deg); }
   }
-}
-
-/* Small screens keep the floating sky composition, scaled to fit */
-@media (max-width: 700px) {
-  .bubble-stage { height: 860px; overflow: visible; }
-  .floating-wishes { display: block; height: 100%; padding: 0; }
-  .wish-bubble,
-  .bubble-position-1, .bubble-position-2, .bubble-position-3, .bubble-position-4,
-  .bubble-position-5, .bubble-position-6, .bubble-position-7, .bubble-position-8,
-  .bubble-position-9, .bubble-position-10, .bubble-position-11 {
-    position: absolute; width: min(245px, 68vw); max-width: 68vw; min-height: 74px;
-    padding: 10px 12px; border-radius: 19px; gap: 8px;
-  }
-  .bubble-avatar { width: 42px; height: 42px; flex-basis: 42px; border-width: 3px; font-size: .72rem; }
-  .bubble-copy small { font-size: .46rem; letter-spacing: .06em; }
-  .bubble-copy strong { font-size: .72rem; line-height: 1.16; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .bubble-position-1 { top: 20px; left: 1%; }
-  .bubble-position-2 { top: 125px; right: 1%; }
-  .bubble-position-3 { top: 240px; left: 7%; }
-  .bubble-position-4 { top: 350px; right: 3%; }
-  .bubble-position-5 { top: 465px; left: 0; }
-  .bubble-position-6 { top: 580px; right: 0; }
-  .bubble-position-7 { top: 690px; left: 11%; }
-  .bubble-position-8 { top: 790px; right: 4%; }
-  .bubble-position-9 { top: 75px; left: 18%; transform: scale(.82); }
-  .bubble-position-10 { top: 300px; left: 31%; transform: scale(.78); }
-  .bubble-position-11 { top: 520px; left: 28%; transform: scale(.8); }
 }

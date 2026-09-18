@@ -172,7 +172,7 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   transition: box-shadow .2s ease;
 }
 .wish-bubble.bubble-yellow { background: radial-gradient(circle at 16% 8%, #fff 0 8%, transparent 31%), linear-gradient(145deg, #fffef0, #f9fd72 52%, #f0d85d); color: #6a4f40; }
-.wish-bubble.bubble-pink { background: radial-gradient(circle at 16% 8%, #fff 0 8%, transparent 31%), linear-gradient(145deg, #fff4fb, #f79ac8 52%, #f14da4); color: #6b3457; }
+.wish-bubble.bubble-pink { background: radial-gradient(circle at 16% 8%, #fff 0 8%, transparent 31%), linear-gradient(145deg, #fff8fc, #f9c4df 52%, #ed8fbe); color: #6b3457; }
 .wish-bubble.bubble-yellow::after { background: #f8ed9a; }
 .wish-bubble.bubble-pink::after { background: #f5a5cb; }
 .wish-bubble::before {

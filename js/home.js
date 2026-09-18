@@ -37,8 +37,7 @@
       var text = document.createElement("strong");
 
       button.type = "button";
-      var bubbleColors = ["bubble-pink", "bubble-yellow", "bubble-yellow", "bubble-pink", "bubble-pink", "bubble-yellow"];
-      button.className = "wish-bubble bubble-position-" + ((index % 11) + 1) + " " + bubbleColors[index % bubbleColors.length];
+      button.className = "wish-bubble bubble-position-" + ((index % 11) + 1) + " bubble-pink";
       button.style.setProperty("--bubble-delay", String(index * -0.7) + "s");
       button.setAttribute("aria-label", "Open the complete wish from " + item.name);
       button.title = item.wish;

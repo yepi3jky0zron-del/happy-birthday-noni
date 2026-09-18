@@ -29,7 +29,7 @@
       return;
     }
 
-    visible.slice(0, 8).forEach(function (item, index) {
+    visible.forEach(function (item, index) {
       var button = document.createElement("button");
       var avatar = document.createElement("span");
       var copy = document.createElement("span");
@@ -37,7 +37,7 @@
       var text = document.createElement("strong");
 
       button.type = "button";
-      button.className = "wish-bubble bubble-position-" + ((index % 8) + 1) + (Math.random() < 0.5 ? " bubble-pink" : " bubble-yellow");
+      button.className = "wish-bubble bubble-position-" + ((index % 11) + 1) + (Math.random() < 0.5 ? " bubble-pink" : " bubble-yellow");
       button.style.setProperty("--bubble-delay", String(index * -0.7) + "s");
       button.setAttribute("aria-label", "Open the complete wish from " + item.name);
       button.title = item.wish;

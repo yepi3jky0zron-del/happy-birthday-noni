@@ -266,6 +266,9 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
 .bubble-position-6 { top: 540px; right: 0; --bubble-width: 330px; }
 .bubble-position-7 { top: 200px; left: 37%; --bubble-width: 330px; }
 .bubble-position-8 { top: 425px; left: 35%; --bubble-width: 320px; }
+.bubble-position-9 { top: 70px; left: 66%; --bubble-width: 285px; }
+.bubble-position-10 { top: 335px; left: 2%; --bubble-width: 300px; }
+.bubble-position-11 { top: 555px; left: 58%; --bubble-width: 275px; }
 
 .wish-detail {
   width: min(850px, calc(100% - 20px));
@@ -490,4 +493,79 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
     width: 100%; max-width: 100%; min-height: 96px;
   }
   .wish-bubble:nth-child(even) { align-self: flex-end; }
+}
+
+/* Dynamic wish wall: every wish stays visible as new wishes are added */
+.bubble-stage { height: auto; min-height: 590px; }
+.floating-wishes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 28px;
+  align-items: start;
+  padding: 18px 2% 55px;
+}
+.floating-wishes .wish-bubble {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  transform: none !important;
+}
+.floating-wishes .wish-bubble:nth-child(3n + 2) { margin-top: 28px; }
+.floating-wishes .wish-bubble:nth-child(3n + 3) { margin-top: 10px; }
+
+@media (max-width: 700px) {
+  .bubble-stage { height: auto; min-height: 0; }
+  .floating-wishes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
+    padding: 12px 0 40px;
+  }
+  .floating-wishes .wish-bubble {
+    width: 100%;
+    min-height: 74px;
+    padding: 9px 10px;
+    border-radius: 18px;
+    gap: 7px;
+  }
+  .floating-wishes .wish-bubble:nth-child(3n + 2),
+  .floating-wishes .wish-bubble:nth-child(3n + 3) { margin-top: 0; }
+  .floating-wishes .wish-bubble:nth-child(even) { margin-top: 18px; }
+  .bubble-avatar { width: 40px; height: 40px; flex-basis: 40px; border-width: 3px; }
+  .bubble-copy small { font-size: .43rem; }
+  .bubble-copy strong { font-size: .68rem; line-height: 1.15; }
+}
+
+/* Small screens keep the floating sky composition, scaled to fit */
+@media (max-width: 700px) {
+  .bubble-stage { height: 860px; overflow: visible; }
+  .floating-wishes { display: block; height: 100%; padding: 0; }
+  .wish-bubble,
+  .bubble-position-1, .bubble-position-2, .bubble-position-3, .bubble-position-4,
+  .bubble-position-5, .bubble-position-6, .bubble-position-7, .bubble-position-8,
+  .bubble-position-9, .bubble-position-10, .bubble-position-11 {
+    position: absolute; width: min(245px, 68vw); max-width: 68vw; min-height: 74px;
+    padding: 10px 12px; border-radius: 19px; gap: 8px;
+  }
+  .bubble-avatar { width: 42px; height: 42px; flex-basis: 42px; border-width: 3px; font-size: .72rem; }
+  .bubble-copy small { font-size: .46rem; letter-spacing: .06em; }
+  .bubble-copy strong { font-size: .72rem; line-height: 1.16; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .bubble-position-1 { top: 20px; left: 1%; }
+  .bubble-position-2 { top: 125px; right: 1%; }
+  .bubble-position-3 { top: 240px; left: 7%; }
+  .bubble-position-4 { top: 350px; right: 3%; }
+  .bubble-position-5 { top: 465px; left: 0; }
+  .bubble-position-6 { top: 580px; right: 0; }
+  .bubble-position-7 { top: 690px; left: 11%; }
+  .bubble-position-8 { top: 790px; right: 4%; }
+  .bubble-position-9 { top: 75px; left: 18%; transform: scale(.82); }
+  .bubble-position-10 { top: 300px; left: 31%; transform: scale(.78); }
+  .bubble-position-11 { top: 520px; left: 28%; transform: scale(.8); }
 }

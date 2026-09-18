@@ -411,8 +411,8 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
 @keyframes cloudDriftRight {
   0% { transform: translateX(0); opacity: 0; }
   8% { opacity: 1; }
-  88% { transform: translateX(var(--cloud-distance)); opacity: 1; }
-  100% { transform: translateX(var(--cloud-distance)); opacity: 0; }
+  82% { transform: translateX(calc(100vw + 180px)); opacity: 1; }
+  100% { transform: translateX(calc(100vw + 230px)); opacity: 0; }
 }
 @keyframes cloudMoveRight { from { transform: translateX(0); } to { transform: translateX(calc(145vw + 600px)); } }
 @keyframes bubbleFloat { 0%, 100% { transform: translateY(0) rotate(-.3deg); } 50% { transform: translateY(-14px) rotate(.45deg); } }
@@ -496,6 +496,11 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   .wish-bubble:nth-child(even) { align-self: flex-end; }
 }
 
+/* Clouds travel fully across the sky at a quicker pace */
+.cloud-track { --cloud-speed: 18s; }
+.cloud-track:nth-child(3n) { --cloud-speed: 22s; }
+.cloud-track:nth-child(3n + 1) { --cloud-speed: 16s; }
+
 /* Dynamic wish wall: every wish stays visible as new wishes are added */
 .bubble-stage { height: auto; min-height: 590px; overflow: visible; }
 .floating-wishes {
@@ -516,7 +521,6 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   max-width: 100%;
   min-height: 104px;
-  transform: none !important;
 }
 .floating-wishes .wish-bubble:nth-child(3n + 2) { margin-top: 28px; }
 .floating-wishes .wish-bubble:nth-child(3n + 3) { margin-top: 10px; }
@@ -562,6 +566,7 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
     transform: rotate(-2deg) !important;
   }
   .floating-wishes .wish-bubble:nth-child(even) {
+    margin-left: auto;
     margin-top: 28px;
     transform: rotate(2.5deg) !important;
     animation-delay: -1.7s;

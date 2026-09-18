@@ -43,7 +43,8 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   min-height: 100vh;
   min-height: 100svh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   padding: 0 18px;
   background:
     radial-gradient(circle at 18% 12%, rgba(255,255,255,.48), transparent 24%),
@@ -496,7 +497,7 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
 }
 
 /* Dynamic wish wall: every wish stays visible as new wishes are added */
-.bubble-stage { height: auto; min-height: 590px; }
+.bubble-stage { height: auto; min-height: 590px; overflow: visible; }
 .floating-wishes {
   position: relative;
   display: grid;
@@ -541,6 +542,38 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   .bubble-avatar { width: 40px; height: 40px; flex-basis: 40px; border-width: 3px; }
   .bubble-copy small { font-size: .43rem; }
   .bubble-copy strong { font-size: .68rem; line-height: 1.15; }
+}
+
+/* Mobile floating paper composition */
+@media (max-width: 700px) {
+  .floating-wishes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px 8px;
+    padding: 12px 1px 45px;
+  }
+  .floating-wishes .wish-bubble {
+    flex: 0 0 47%;
+    width: 47%;
+    min-height: 70px;
+    animation: mobilePaperFloat 5.2s ease-in-out infinite;
+    transform: rotate(-2deg) !important;
+  }
+  .floating-wishes .wish-bubble:nth-child(even) {
+    margin-top: 28px;
+    transform: rotate(2.5deg) !important;
+    animation-delay: -1.7s;
+  }
+  .floating-wishes .wish-bubble:nth-child(3n) {
+    transform: rotate(-1deg) !important;
+    animation-delay: -3.1s;
+  }
+  @keyframes mobilePaperFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -8px; }
+  }
 }
 
 /* Small screens keep the floating sky composition, scaled to fit */

@@ -478,3 +478,16 @@ a, button, label[for="avatar"] { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
 }
+
+/* Mobile: keep every wish visible without overlapping */
+@media (max-width: 700px) {
+  .bubble-stage { height: auto; min-height: 0; margin: 20px auto 30px; }
+  .floating-wishes { position: relative; display: flex; flex-direction: column; gap: 28px; padding: 10px 0 30px; }
+  .wish-bubble,
+  .bubble-position-1, .bubble-position-2, .bubble-position-3, .bubble-position-4,
+  .bubble-position-5, .bubble-position-6, .bubble-position-7, .bubble-position-8 {
+    position: relative; inset: auto; top: auto; right: auto; bottom: auto; left: auto;
+    width: 100%; max-width: 100%; min-height: 96px;
+  }
+  .wish-bubble:nth-child(even) { align-self: flex-end; }
+}
